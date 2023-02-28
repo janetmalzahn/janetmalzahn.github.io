@@ -60,7 +60,7 @@ h2 {
 }
 
 h3, h4, h5, h6 {
-  color: #9e221b;
+  color: #9e1b65;
 }
 
 a small {
@@ -299,24 +299,24 @@ details[open] {
 
 /* For nav bar */
 a, a:visited{
-     color: #9e221b;;
+     color: #9e1b65;
      text-decoration:none;
 }
 
 a:hover{
   text-decoration:underline;
-  color:  #9e221b;;
+  color:  #9e1b65;
 }
 
 /* For bib */
 a.bib, a:visited.bib{
-     color: #9e221b;
+     color: #9e1b65;
      text-decoration:none;
      font-size: 100%;
 }
 
 a:hover.bib {
-  color: #9e221b;
+  color: #9e1b65;
   text-decoration:underline;
   font-size: 120%;
 }
@@ -324,7 +324,7 @@ a:hover.bib {
 
 
 .greedy-nav a, a:visited {
-    color: #9e221b;
+    color: #9e1b65;
 }
 
 greedy-nav .visible-links a:before {
@@ -333,7 +333,7 @@ greedy-nav .visible-links a:before {
 
 
 .greedy-nav a:hover {
-    color: #9e221b;
+    color: #9e1b65;
 }
 
 .myGallery {
