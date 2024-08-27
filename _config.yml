@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: " "
+title: ""
 email: jmalzahn at stanford dot edu
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
@@ -48,7 +48,7 @@ defaults:
 author:
   name: "name"
   avatar: "/assets/images/bio-photo.jpg"
-  bio: "predoc" # Note: Markdown is allowed
+  bio: "PhD Student" # Note: Markdown is allowed
   location: "Palo Alto, CA"
   links:
     - label: "Twitter"
