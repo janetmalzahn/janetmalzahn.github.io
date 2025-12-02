@@ -1,45 +1,378 @@
----
-layout: andy_bar
-author_profile: true
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janet Malzahn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<div class="wrapper">
-  <section>
-    {% include_cached masthead.html %}
+        :root {
+            --primary-color: #c2495b;
+            --secondary-color: #d4616f;
+            --accent-color: #a83d50;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --background: #ffffff;
+            --background-alt: #ffffff;
+            --border-color: #e8d5d8;
+        }
 
-      <div align="left">
-       
-        <h3 id="publications">Peer-Reviewed Publications</h3>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--background);
+            -webkit-font-smoothing: antialiased;
+        }
 
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
 
-        <p>
-          <ul class="my_list">
-          <li><a target="_blank" class="bib" href="/documents/Malzahn_Hall_Election_Denying_Candidates_2024.pdf">Election-Denying Republican Candidates Underperformed in the 2022 Midterms</a> (Joint with Andrew B. Hall). <i>Forthcoming @ APSR</i> </li>
-        <details><summary>Abstract</summary>
-          We combine newly collected election data with records of public denials of the results of the 2020 election to estimate the degree to which election-denying Republican candidates for senator, governor, secretary of state, and attorney general over- or under-performed other Republicans in 2022. We find that the average vote share of election-denying Republicans in statewide races was approximately 2.3 percentage points lower than their co-partisans after accounting for state-level partisanship. Election-denying candidates received roughly 2 percentage-points more vote share than other Republican candidates in primaries, on average, although this estimate is quite uncertain. The general-election penalty is larger than the margin of victory in battleground states in recent close presidential elections, suggesting that nominating election-denying candidates in 2024 could be a damaging electoral strategy for Republicans. At the same time, it is small enough to suggest that only a relatively small group of voters changed their vote in response to having an election-denying candidate on the ballot. 
-        </details>
-        </p>
-        </ul> 
+        header {
+            margin-bottom: 0;
+        }
 
+        .header-content {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            flex-direction: row-reverse;
+        }
 
-    <h3 id="working-papers">Working Papers</h3>
+        .header-text {
+            flex: 1;
+        }
 
-    <h3 id="works-in-progress">Works in Progress</h3>
+        .headshot {
+            width: 180px;
+            height: 180px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
 
-    <p>
-      <ul class="my_list">
-      <li>Seeking Higher Ground: Partisan Sorting Along Future Inundation Risk from Sea Level Rise.</li>
-    </p>
-    </ul>  
-    <p>
-      <ul class="my_list">
-      <li>Have Changes to Media and Technology Helped to Nationalize American Elections? (Joint with Daniel M. Thompson, Fang Guo, Alexander Fouirnaies, and Andrew B. Hall)</li>
-    </p>
-    </ul>  
-    <p>
-      <ul class="my_list">
-      <li>Cable News and Polarization. (Joint with Daniel M. Thompson and Andrew B. Hall)</li>
-    </p>
-    </ul>  
-  </section>
-</div>
+        .headshot img {
+            width: 120%;
+            height: 120%;
+            object-fit: cover;
+            /* Adjust this value to move the photo within the circle */
+            /* Negative values move image UP (shows MORE of top of head, face lower in frame) */
+            /* Positive values move image DOWN (shows LESS of top of head, face higher in frame) */
+            /* Start with -10% and adjust as needed: try -15%, -20%, etc. */
+            transform: translateY(8%);
+        }
+
+        .intro {
+            margin-top: 20px;
+            margin-bottom: 0;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        .separator {
+            margin: 15px 0 30px 0;
+            text-align: center;
+        }
+
+        .separator svg {
+            width: 100%;
+            height: 12px;
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-info .separator-dot {
+            margin: 0 8px;
+            color: var(--text-secondary);
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.65rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .paper {
+            margin-bottom: 20px;
+        }
+
+        .paper-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 2px;
+            line-height: 1.4;
+        }
+
+        .paper-title a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .paper-title a:hover {
+            color: var(--secondary-color);
+        }
+
+        .paper-info {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .paper-authors {
+            display: inline;
+        }
+
+        .paper-authors::after {
+            content: ". ";
+        }
+
+        .paper-venue {
+            display: inline;
+            font-style: italic;
+        }
+
+        .abstract {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-top: 8px;
+            display: none;
+            padding-left: 20px;
+        }
+
+        .abstract.show {
+            display: block;
+        }
+
+        .abstract-toggle {
+            cursor: pointer;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-top: 4px;
+            display: inline-block;
+            user-select: none;
+        }
+
+        .abstract-toggle:hover {
+            color: var(--accent-color);
+        }
+
+        .abstract-toggle::before {
+            content: "▸ ";
+            display: inline-block;
+            transition: transform 0.2s;
+            font-size: 1.1rem;
+        }
+
+        .abstract-toggle.expanded::before {
+            transform: rotate(90deg);
+        }
+
+        .project {
+            margin-bottom: 20px;
+            padding-left: 0;
+        }
+
+        .project-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .project-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .header-content {
+                flex-direction: column-reverse;
+            }
+
+            .headshot {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        .status-badge {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .status-badge::before {
+            content: "(";
+        }
+
+        .status-badge::after {
+            content: ")";
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+        <header id="about">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Janet Malzahn</h1>
+                    <div class="subtitle">
+                        Ph.D. Student · Political Economics · Stanford Graduate School of Business
+                    </div>
+                    <div class="contact-info">
+                        jmalzahn (at) stanford (dot) edu
+                        <span class="separator-dot">·</span>
+                        <a href="documents/cv-jmalzahn.pdf">CV</a>
+                    </div>
+                </div>
+                <div class="headshot">
+                    <img src="jmalzahn_headshot.jpg" alt="Janet Malzahn">
+                </div>
+            </div>
+            <div class="intro">
+                I am a third-year Ph.D. student in the Political Economics group at the Stanford Graduate School of Business. I'm interested in American political economy with a focus on elections and climate change.
+            </div>
+        </header>
+
+        <div class="separator">
+            <svg viewBox="0 0 1200 12" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,6 Q15,0 30,6 T60,6 T90,6 T120,6 T150,6 T180,6 T210,6 T240,6 T270,6 T300,6 T330,6 T360,6 T390,6 T420,6 T450,6 T480,6 T510,6 T540,6 T570,6 T600,6 T630,6 T660,6 T690,6 T720,6 T750,6 T780,6 T810,6 T840,6 T870,6 T900,6 T930,6 T960,6 T990,6 T1020,6 T1050,6 T1080,6 T1110,6 T1140,6 T1170,6 T1200,6" 
+                      stroke="#999" 
+                      fill="none" 
+                      stroke-width="0.8"/>
+            </svg>
+        </div>
+
+        <section id="publications">
+            <h2>Peer-Reviewed Publications</h2>
+            
+            <div class="paper">
+                <div class="paper-title">
+                    <a href="documents/Malzahn_Hall_Election_Denying_Candidates_2024.pdf">
+                        Election-Denying Republican Candidates Underperformed in the 2022 Midterms
+                    </a>
+                </div>
+                <div class="paper-info">
+                    <span class="paper-authors">Joint with Andrew B. Hall</span><span class="paper-venue">Forthcoming at American Political Science Review</span>
+                </div>
+                <div class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</div>
+                <div class="abstract">
+                    We combine newly collected election data with records of public denials of the results of the 2020 election to estimate the degree to which election-denying Republican candidates for senator, governor, secretary of state, and attorney general over- or under-performed other Republicans in 2022. We find that the average vote share of election-denying Republicans in statewide races was approximately 2.3 percentage points lower than their co-partisans after accounting for state-level partisanship. Election-denying candidates received roughly 2 percentage-points more vote share than other Republican candidates in primaries, on average, although this estimate is quite uncertain. The general-election penalty is larger than the margin of victory in battleground states in recent close presidential elections, suggesting that nominating election-denying candidates in 2024 could be a damaging electoral strategy for Republicans. At the same time, it is small enough to suggest that only a relatively small group of voters changed their vote in response to having an election-denying candidate on the ballot.
+                </div>
+            </div>
+        </section>
+
+        <section id="working-papers">
+            <h2>Working Papers</h2>
+            
+            <div class="project">
+                <div class="paper-title">Coming soon</div>
+            </div>
+        </section>
+
+        <section id="works-in-progress">
+            <h2>Works in Progress</h2>
+            
+            <div class="project">
+                <div class="project-title">Seeking Higher Ground: Partisan Sorting Along Future Inundation Risk from Sea Level Rise</div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">Green Bills and Pork: The Political Durability of Green Industrial Policy</div>
+                <div class="project-meta">Joint with Mary Reader</div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">The Hidden Incumbency Advantage: How Officeholding Shapes Intra-Party Competition in American Legislative and Executive Elections.</div>
+                <div class="project-meta">Joint with Andrew C. W. Myers</div>
+            </div>
+            
+            <div class="project">
+                <div class="project-title">Have Changes to Media and Technology Helped to Nationalize American Elections?</div>
+                <div class="project-meta">Joint with Daniel M. Thompson, Fang Guo, Alexander Fouirnaies, and Andrew B. Hall</div>
+            </div>
+
+            
+        </section>
+    </div>
+
+    <script>
+        function toggleAbstract(element) {
+            const abstract = element.nextElementSibling;
+            element.classList.toggle('expanded');
+            abstract.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
