@@ -135,129 +135,128 @@
         }
 
         section {
-            margin-bottom: 28px;
+            margin-bottom: 24px;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
         }
 
         h2 {
             font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 14px;
+            margin-bottom: 10px;
+            line-height: 1.3;
         }
 
-        .paper {
-            margin-bottom: 16px;
+        .paper + .paper,
+        .project + .project {
+            margin-top: 14px;
         }
 
-        .paper-title {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--primary-color);
-            margin-bottom: 2px;
+        .paper-title,
+        .project-title {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 3px;
             line-height: 1.4;
         }
 
-        .paper-title a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .paper-title a:hover {
-            color: var(--secondary-color);
-        }
-
-        .paper-info {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 2px;
-        }
-
-        .paper-authors {
-            display: inline;
-        }
-
-        .paper-authors::after {
-            content: ". ";
-        }
-
-        .paper-year {
-            display: inline;
-        }
-
-        .paper-year::after {
-            content: ". ";
-        }
-
-        .paper-venue {
-            display: inline;
-            font-style: italic;
-        }
-
-        .abstract {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-top: 8px;
-            display: none;
-            padding-left: 20px;
-        }
-
-        .abstract.show {
-            display: block;
-        }
-
-        .abstract-toggle {
-            cursor: pointer;
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-            margin-top: 0px;
-            display: inline-block;
-            user-select: none;
-        }
-
-        .abstract-toggle:hover {
-            color: var(--accent-color);
-        }
-
-        .abstract-toggle::before {
-            content: "▸ ";
-            display: inline-block;
-            transition: transform 0.2s;
-            font-size: 1.1rem;
-        }
-
-        .abstract-toggle.expanded::before {
-            transform: rotate(90deg);
-        }
-
-        .project {
-            margin-bottom: 16px;
-            padding-left: 0;
-        }
-
-        .project-title {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin-bottom: 2px;
-        }
-
+        .paper-title a,
         .project-title a {
             color: var(--primary-color);
             text-decoration: none;
             transition: color 0.2s;
         }
 
+        .paper-title a:hover,
         .project-title a:hover {
-            color: var(--secondary-color);
+            color: var(--accent-color);
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
+        .paper-info,
         .project-meta {
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .paper-venue {
             font-style: italic;
+        }
+
+        .paper-info .separator-dot {
+            margin: 0 4px;
+        }
+
+        .abstract {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 4px 0 8px;
+            padding-left: 16px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .paper-details {
+            margin-top: 2px;
+        }
+
+        .abstract-toggle {
+            cursor: pointer;
+            color: var(--primary-color);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            width: fit-content;
+            min-height: 28px;
+            padding: 2px;
+            list-style: none;
+        }
+
+        .abstract-toggle:hover {
+            color: var(--accent-color);
+        }
+
+        .abstract-toggle::-webkit-details-marker {
+            display: none;
+        }
+
+        .abstract-toggle::marker {
+            content: "";
+        }
+
+        .abstract-toggle::before {
+            content: "▸";
+            width: 10px;
+            text-align: center;
+        }
+
+        .paper-details[open] .abstract-toggle::before {
+            transform: rotate(90deg);
+        }
+
+        a:focus-visible,
+        .abstract-toggle:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        .project-title:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (pointer: coarse) {
+            .abstract-toggle {
+                min-height: 36px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -267,10 +266,6 @@
 
             h1 {
                 font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
             }
 
             .header-content {
@@ -300,13 +295,13 @@
     </style>
 </head>
 <body>
-<div class="container">
+<main class="container">
         <header id="about">
             <div class="header-content">
                 <div class="header-text">
                     <h1>Janet Malzahn</h1>
                     <div class="subtitle">
-                        Ph.D. Student · Political Economics · Stanford GSB
+                        Ph.D. Candidate · Political Economics · Stanford GSB
                     </div>
                     <div class="contact-info">
                         jmalzahn (at) stanford (dot) edu
@@ -319,7 +314,7 @@
                 </div>
             </div>
             <div class="intro">
-                I am a third-year Ph.D. student in the Political Economy group at the Stanford Graduate School of Business. I'm interested in American political economy with a focus on elections and climate change.
+                I am a fourth-year Ph.D. candidate in the Political Economy group at the Stanford Graduate School of Business. I'm interested in American political economy with a focus on elections and climate change.
             </div>
         </header>
 
@@ -335,62 +330,72 @@
         <section id="publications">
             <h2>Peer-Reviewed Publications</h2>
             
-            <div class="paper">
-                <div class="paper-title">
+            <article class="paper">
+                <h3 class="paper-title">
                     <a href="documents/Malzahn_Hall_Election_Denying_Candidates_2024.pdf">
                         Election-Denying Republican Candidates Underperformed in the 2022 Midterms
                     </a>
-                </div>
-                <div class="paper-info">
-                    <span class="paper-authors">Joint with Andrew B. Hall</span><span class="paper-year">2024</span><span class="paper-venue"> American Political Science Review</span>
-                </div>
-                <div class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</div>
-                <div class="abstract">
+                </h3>
+                <p class="paper-info">
+                    Joint with Andrew B. Hall
+                    <span class="separator-dot" aria-hidden="true">·</span>
+                    <time datetime="2024">2024</time>
+                    <span class="separator-dot" aria-hidden="true">·</span>
+                    <cite class="paper-venue">American Political Science Review</cite>
+                </p>
+                <details class="paper-details">
+                    <summary class="abstract-toggle">Abstract</summary>
+                    <p class="abstract">
                     We combine newly collected election data with records of public denials of the results of the 2020 election to estimate the degree to which election-denying Republican candidates for senator, governor, secretary of state, and attorney general over- or under-performed other Republicans in 2022. We find that the average vote share of election-denying Republicans in statewide races was approximately 2.3 percentage points lower than their co-partisans after accounting for state-level partisanship. Election-denying candidates received roughly 2 percentage-points more vote share than other Republican candidates in primaries, on average, although this estimate is quite uncertain. The general-election penalty is larger than the margin of victory in battleground states in recent close presidential elections, suggesting that nominating election-denying candidates in 2024 could be a damaging electoral strategy for Republicans. At the same time, it is small enough to suggest that only a relatively small group of voters changed their vote in response to having an election-denying candidate on the ballot.
-                </div>
-            </div>
+                    </p>
+                </details>
+            </article>
         </section>
 
         <section id="working-papers">
             <h2>Working Papers</h2>
 
-            <div class="paper">
-                <div class="paper-title">
+            <article class="paper">
+                <h3 class="paper-title">
                     <a href="documents/asher_et_al_LLM_sycophancy.pdf">
                         Do Claude Code and Codex P-Hack? Sycophancy and Statistical Analysis in Large Language Models
                     </a>
-                </div>
-                <div class="paper-info">
-                    <span class="paper-authors">Joint with Samuel G.Z. Asher, Jessica M. Persano, Elliot J. Paschal, Andrew C. W. Myers, and Andrew B. Hall</span><span class="paper-year">2026</span>
-                </div>
-                <div class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</div>
-                <div class="abstract">
+                </h3>
+                <p class="paper-info">
+                    Joint with Samuel G.Z. Asher, Jessica M. Persano, Elliot J. Paschal, Andrew C. W. Myers, and Andrew B. Hall
+                    <span class="separator-dot" aria-hidden="true">·</span>
+                    <time datetime="2026">2026</time>
+                </p>
+                <details class="paper-details">
+                    <summary class="abstract-toggle">Abstract</summary>
+                    <p class="abstract">
                     Large language models (LLMs) are increasingly used as research assistants for statistical analysis. A well-documented concern using LLMs is <em>sycophancy</em>, or the tendency to tell users what they want to hear rather than what is true. If sycophancy extends to statistical reasoning, LLM-assisted research could inadvertently automate p-hacking. We evaluate this possibility by asking two AI coding agents&mdash;Claude Opus 4.6 and OpenAI Codex (GPT-5.2-Codex)&mdash;to analyze datasets from four published political science papers with null or near-null results, varying the research framing and the pressure applied for significant findings in a 2 &times; 4 factorial design across 640 independent runs. Under standard prompting, both models produce remarkably stable estimates and explicitly refuse direct requests to p-hack, identifying them as scientific misconduct. However, a prompt that reframes specification search as uncertainty reporting bypasses these guardrails, causing both models to engage in systematic specification search. The degree of estimate inflation under this adversarial nudge tracks the analytical flexibility available in each research design: observational studies are more vulnerable than randomized experiments. These findings suggest that, at least in narrow estimation tasks, LLMs themselves are unlikely to bias results toward statistical significance, but safety guardrails are likely unable to restrain researchers intent on p-hacking.
-                </div>
-            </div>
+                    </p>
+                </details>
+            </article>
         </section>
 
         <section id="works-in-progress">
             <h2>Works in Progress</h2>
             
-            <div class="project">
-                <div class="project-title"> Do partisans sort along climate risk? Evidence from the United States</div>
-            </div>
+            <article class="project">
+                <h3 class="project-title">Do partisans sort along climate risk? Evidence from the United States</h3>
+            </article>
 
-            <div class="project">
-                <div class="project-title">Green Bills and Pork: The Political Durability of Green Industrial Policy</div>
-                <div class="project-meta">Joint with Mary Reader</div>
-            </div>
+            <article class="project">
+                <h3 class="project-title">Green Bills and Pork: The Political Durability of Green Industrial Policy</h3>
+                <p class="project-meta">Joint with Mary Reader</p>
+            </article>
 
-            <div class="project">
-                <div class="project-title">The Hidden Incumbency Advantage: How Officeholding Shapes Intra-Party Competition in American Legislative and Executive Elections</div>
-                <div class="project-meta">Joint with Andrew C. W. Myers</div>
-            </div>
+            <article class="project">
+                <h3 class="project-title">The Hidden Incumbency Advantage: How Officeholding Shapes Intra-Party Competition in American Legislative and Executive Elections</h3>
+                <p class="project-meta">Joint with Andrew C. W. Myers</p>
+            </article>
             
-            <div class="project">
-                <div class="project-title">Have Changes to Media and Technology Helped to Nationalize American Elections?</div>
-                <div class="project-meta">Joint with Daniel M. Thompson, Fang Guo, and Andrew B. Hall</div>
-            </div>
+            <article class="project">
+                <h3 class="project-title">Have Changes to Media and Technology Helped to Nationalize American Elections?</h3>
+                <p class="project-meta">Joint with Daniel M. Thompson, Fang Guo, and Andrew B. Hall</p>
+            </article>
 
 
         </section>
@@ -398,19 +403,11 @@
         <section id="public-goods">
             <h2>Public Goods</h2>
 
-            <div class="project">
-                <div class="project-title"><a href="https://github.com/janetmalzahn/megamerge">megamerge</a></div>
-                <div class="project-meta">Stata package for iterative record linkage on name variables</div>
-            </div>
+            <article class="project">
+                <h3 class="project-title"><a href="https://github.com/janetmalzahn/megamerge">megamerge</a></h3>
+                <p class="project-meta">Stata package for iterative record linkage on name variables</p>
+            </article>
         </section>
-    </div>
-
-    <script>
-        function toggleAbstract(element) {
-            const abstract = element.nextElementSibling;
-            element.classList.toggle('expanded');
-            abstract.classList.toggle('show');
-        }
-    </script>
+    </main>
 </body>
 </html>
